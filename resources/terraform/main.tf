@@ -2,6 +2,14 @@ provider "aws" {
   region = "us-east-1"
 }
 
+terraform {
+  backend "s3" {
+    bucket = "terraform-yoko-20200927"
+    key    = "terraform.tfstate"
+    region = "us-east-1"
+  }
+}
+
 data "aws_ami" "ubuntu" {
   most_recent = true
 
